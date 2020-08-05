@@ -1,2 +1,2 @@
 # FirebaseFunctions-CallApi
-Create api call https by firebase functions
+API Call HTTP Cloud Functions for Firebase use express & cors
