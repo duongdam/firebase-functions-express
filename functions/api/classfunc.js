@@ -46,5 +46,3 @@ app.get('/', (req, res) => getEvents(req, res));
 
 // Expose Express API as a single Cloud Function:
 exports = module.exports = functions.https.onRequest(app);
-
-
