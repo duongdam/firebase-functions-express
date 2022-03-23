@@ -16,6 +16,8 @@ firebase-debug.log*
 # it commented so all members can deploy to the same project(s) in .firebaserc.
 # .firebaserc
 
+functions/classfunc-com-firebase-adminsdk-ykfib-b972304ba4.json
+
 # Runtime data
 pids
 *.pid

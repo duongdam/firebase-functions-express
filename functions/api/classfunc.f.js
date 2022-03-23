@@ -4,7 +4,6 @@ const cors = require('cors');
 const functions = require('firebase-functions');
 const app = express();
 const myMiddleware = require('./Actions/myMiddleware');
-// const createEvent = require('./CreateEvent/createEvent');
 const getEvents = require('./GetEvents/getEvents');
 // const updateEvent = require('./UpdateEvent/updateEvent');
 // const moveEvent = require('./MoveEvent/moveEvent');
@@ -20,13 +19,7 @@ app.use(myMiddleware);
 
 app.use((req, res, next) => {
   console.log('new Date', new Date());
-  console.log('moment tz Tokyo',
-      momentTz.tz('Asia/Tokyo').startOf('day').utc().format());
-  console.log('moment tz Saigon',
-      momentTz.tz('Asia/Saigon').startOf('day').utc().format());
-  if (req.hostname.includes('localhost') ||
-      req.hostname.includes('calendar-stg.geniam.com') ||
-      req.rawHeaders.includes('calendar-stg.geniam.com')) {
+  if (req.hostname.includes('localhost')) {
     //stg
     req.CalEnv = 'stg';
   }
@@ -45,4 +38,4 @@ app.get('/', (req, res) => getEvents(req, res));
 // app.delete('/', (req, res) => deleteEvent(req, res));
 
 // Expose Express API as a single Cloud Function:
-exports = module.exports = functions.https.onRequest(app);
+exports = module.exports = functions.region("us-central1").https.onRequest(app);

@@ -2,20 +2,22 @@
   "name": "functions",
   "description": "API Call HTTP Cloud Functions for Firebase use express & cors",
   "scripts": {
-    "serve": "firebase serve --only functions",
+    "serve": "firebase serve --only functions -p 5005",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "10"
+    "node": "14"
   },
   "dependencies": {
+    "camelcase": "^6.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase-admin": "^8.6.0",
     "firebase-functions": "^3.3.0",
+    "glob": "^7.2.0",
     "jwt-decode": "^2.2.0",
     "moment-timezone": "^0.5.31"
   },

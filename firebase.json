@@ -1,7 +1,7 @@
 {
   "emulators": {
     "firestore": {
-      "port": "5002"
+      "port": "5005"
     }
   }
 }
