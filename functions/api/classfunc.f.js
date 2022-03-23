@@ -4,10 +4,6 @@ const cors = require('cors');
 const functions = require('firebase-functions');
 const app = express();
 const myMiddleware = require('./Actions/myMiddleware');
-const getEvents = require('./GetEvents/getEvents');
-// const updateEvent = require('./UpdateEvent/updateEvent');
-// const moveEvent = require('./MoveEvent/moveEvent');
-// const deleteEvent = require('./DeleteEvent/deleteEvent');
 
 // Automatically allow cross-origin requests
 app.use(cors({origin: true}));
@@ -31,8 +27,7 @@ app.use((req, res, next) => {
 });
 
 // build multiple CRUD interfaces:
-app.get('/', (req, res) => getEvents(req, res));
-// app.post('/create', (req, res) => createEvent(req, res));
+app.use("/write", require("./routes/writeData"))
 // app.post('/update', (req, res) => updateEvent(req, res));
 // app.post('/move', (req, res) => moveEvent(req, res));
 // app.delete('/', (req, res) => deleteEvent(req, res));
